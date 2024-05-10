@@ -23,7 +23,7 @@ class BeatGANsUNetConfig(BaseConfig):
     model_channels: int = 64
     
     # number of fonts
-    no_of_fonts = 1528 # TODO: fix me, make it read the number of fonts from the lmdb dataset
+    no_of_fonts = 5 # TODO: fix me, make it read the number of fonts from the lmdb dataset
     # output of the unet
     # suggest: 3
     # you only need 6 if you also model the variance of the noise prediction (usually we use an analytical variance hence 3)
