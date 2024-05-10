@@ -1,0 +1,148 @@
+seed: 0
+train_cond0_prob: 0
+train_pred_xstart_detach: true
+train_interpolate_prob: 0
+train_interpolate_img: false
+manipulate_cls: null
+manipulate_shots: null
+manipulate_znormalize: false
+manipulate_seed: 0
+accum_batches: 1
+autoenc_mid_attn: true
+batch_size: 32
+batch_size_eval: 128
+beatgans_rescale_timesteps: false
+latent_infer_path: null
+latent_znormalize: false
+latent_rescale_timesteps: false
+latent_T_eval: 1000
+latent_clip_sample: false
+latent_beta_scheduler: linear
+beta_scheduler: linear
+data_name: fontlmdb32
+data_val_name: ''
+diffusion_type: beatgans
+dropout: 0.1
+ema_decay: 0.9999
+eval_num_images: 60
+eval_every_samples: 10000000
+eval_ema_every_samples: 10000000
+fid_use_torch: true
+fp16: true
+grad_clip: 1
+img_size: 64
+lr: 0.0001
+weight_decay: 0
+model_conf:
+  image_size: 64
+  in_channels: 3
+  model_channels: 128
+  out_channels: 3
+  num_res_blocks: 2
+  num_input_res_blocks: null
+  embed_channels: 512
+  attention_resolutions:
+  - 16
+  time_embed_channels: null
+  dropout: 0.1
+  channel_mult:
+  - 1
+  - 1
+  - 2
+  - 3
+  - 4
+  input_channel_mult: null
+  conv_resample: true
+  dims: 2
+  num_classes: null
+  use_checkpoint: false
+  num_heads: 1
+  num_head_channels: -1
+  num_heads_upsample: -1
+  resblock_updown: true
+  use_new_attention_order: false
+  resnet_two_cond: true
+  resnet_cond_channels: null
+  resnet_use_zero_module: true
+  attn_checkpoint: false
+  enc_out_channels: 512
+  enc_attn_resolutions: null
+  enc_pool: adaptivenonzero
+  enc_num_res_block: 2
+  enc_channel_mult:
+  - 1
+  - 1
+  - 2
+  - 3
+  - 4
+  - 4
+  enc_grad_checkpoint: false
+  latent_net_conf: null
+net_attn:
+- 16
+net_beatgans_attn_head: 1
+net_beatgans_embed_channels: 512
+net_resblock_updown: true
+net_enc_use_time: false
+net_enc_pool: adaptivenonzero
+net_beatgans_gradient_checkpoint: false
+net_beatgans_resnet_two_cond: true
+net_beatgans_resnet_use_zero_module: true
+net_beatgans_resnet_cond_channels: null
+net_ch_mult:
+- 1
+- 1
+- 2
+- 3
+- 4
+net_ch: 128
+net_enc_attn: null
+net_enc_k: null
+net_enc_num_res_blocks: 2
+net_enc_channel_mult:
+- 1
+- 1
+- 2
+- 3
+- 4
+- 4
+net_enc_grad_checkpoint: false
+net_autoenc_stochastic: false
+net_latent_channel_mult:
+- 1
+- 2
+- 4
+net_latent_condition_bias: 0
+net_latent_dropout: 0
+net_latent_layers: null
+net_latent_num_hid_channels: 1024
+net_latent_num_time_layers: 2
+net_latent_skip_layers: null
+net_latent_time_emb_channels: 64
+net_latent_use_norm: false
+net_latent_time_last_act: false
+net_num_res_blocks: 2
+net_num_input_res_blocks: null
+net_enc_num_cls: null
+num_workers: 4
+parallel: false
+postfix: ''
+sample_size: 32
+sample_every_samples: 20000
+save_every_samples: 100000
+style_ch: 512
+T_eval: 20
+T_sampler: uniform
+T: 1000
+font32_autoenc_10Ktotal_samples: 10000000
+warmup: 0
+pretrain: null
+continue_from: null
+eval_programs: null
+eval_path: null
+base_dir: checkpoints
+use_cache_dataset: false
+data_cache_dir: /home/devesh_temp/cache
+work_cache_dir: /home/devesh_temp/mycache
+name: font128_autoenc
+total_samples: 130000000
