@@ -38,7 +38,8 @@ Create a conda envrionment with the given requirement.txt file.
 
 3.  Generating TTF fonts from interpolated images: <br>
       1. Each font interpolation yields 10 images (2 original and 8 interpolated). To select a character image from these, we utilize an English OCR model. Among the 3rd to 7th interpolated images, we choose the one that the model correctly predicts with the lowest confidence. This approach ensures both correctness and variability.
-      2. `/img2ttf/place_font_on_template.py` script will automatically place the font images at appropriate places in the given template (this greatly saves time to create fonts manually 😊). You also need to download checkpoint of [PARSeq] (https://github.com/baudm/parseq) OCR model. 
+      2. `/img2ttf/place_font_on_template.py` script will automatically place the font images at appropriate places in the given template(this greatly saves time to create fonts manually 😊). You also need to download checkpoint of [PARSeq] (https://github.com/baudm/parseq) OCR model. 
+         <img src="diffae/imgs/template_example.png" alt="Generating ttf fonts from images" width="45%" height="15%">
       3. Upload this template to https://www.calligraphr.com/ for generating ttf fonts.
      
 4.  Generating synthetic datasets from interpolated fonts:
