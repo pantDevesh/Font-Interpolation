@@ -22,23 +22,23 @@ Create a conda envrionment with the given requirement.txt file.
    - Various off-the-shelf GAN & diffusion models have been explored for Font Interpolation, some mentioned in the Literature section.
    - We opted for Diffusion autoencoder ([DiffAE](https://github.com/phizaz/diffae)) as the baseline due to its promising results in general image interpolation.
 
-    <img src="https://github.com/pantDevesh/Font-Interpolation/raw/master/diffae/imgs/main_arch.png" alt="Model Architecure" width="40%" height="40%">
+      <img src="diffae/imgs/main_arch.png" alt="Model Architecure" width="65%" height="65%">
 
 
    - The architecture was slightly modified by adding an MLP for font classification, aiming to improve the image latent space of the font. The model was trained on a synthetic dataset generated using Synthtiger (1M images with 5 fonts). The OCR accuracy results below are from this model. However, we also experimented with training the model solely on font images from all English fonts (~200K images), observing overfitting.
    - Checkpoints: `/home/data/submit/WORKING/devesh/Font-Interpolation/diffae_checkpoints`
 
    #### Training:
-       1. Run `https://github.com/pantDevesh/Font-Interpolation/blob/master/diffae/run_fonts_ddim.py` to train the model
-       2. Note that we only need to train the encoder, we don't train latent DPM.
+      1. Run `/diffae/run_fonts_ddim.py` to train the model
+      2. Note that we only need to train the encoder, we don't train latent DPM.
    #### Inference:
-       1. Run [interpolate.ipynb](https://github.com/pantDevesh/Font-Interpolation/blob/master/diffae/interpolate.ipynb) to diffae interpolation.
-       2. Run [interpolate_pullback.ipynb](https://github.com/pantDevesh/Font-Interpolation/blob/master/diffae/interpolate_pullback.ipynb) for interpolating through parallel transport, as mentioned in this paper(https://arxiv.org/abs/2307.12868)
-       3. For running interpolation on all the pairs, run prepare_fonts_nc2.py to build pairs of fonts to be interpolated, run batch_intp.py to perform interpolation.
+      1. Run `/diffae/interpolate.ipynb` for interpolation
+      2. Run `/diffae/interpolate_pullback.ipynb` for interpolating through parallel transport, as mentioned in this paper(https://arxiv.org/abs/2307.12868)
+      3. For running interpolation on all the pairs, run `/diffae/prepare_fonts_nc2.py` to build pairs of fonts to be interpolated, run `/diffae/batch_intp.py` to perform interpolation.
 
 3.  Generating TTF fonts from interpolated images: <br>
       1. Each font interpolation yields 10 images (2 original and 8 interpolated). To select a character image from these, we utilize an English OCR model. Among the 3rd to 7th interpolated images, we choose the one that the model correctly predicts with the lowest confidence. This approach ensures both correctness and variability.
-      2. `place_font_on_template.py` script will automatically place the font images at appropriate places in the given template (this greatly saves time to create fonts manually 😊). You also need to download checkpoint of [PARSeq] (https://github.com/baudm/parseq) OCR model. 
+      2. `/img2ttf/place_font_on_template.py` script will automatically place the font images at appropriate places in the given template (this greatly saves time to create fonts manually 😊). You also need to download checkpoint of [PARSeq] (https://github.com/baudm/parseq) OCR model. 
       3. Upload this template to https://www.calligraphr.com/ for generating ttf fonts.
      
 4.  Generating synthetic datasets from interpolated fonts:
